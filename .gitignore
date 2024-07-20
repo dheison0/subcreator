@@ -1,0 +1,5 @@
+__pycache__/
+.venv/
+*.srt
+*.json
+test.py
