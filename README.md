@@ -24,8 +24,8 @@ pip install -r requirements.txt
 
 p=$HOME/.local/bin/subcreator
 # Create a script to run subcreator without needing to activate venv manually every time
-echo "#!/usr/bin/env bash" > "$p"
-echo "root='$HOME/.local/subcreator'" >> "$p"
+echo '#!/usr/bin/env bash' > "$p"
+echo 'root="$HOME/.local/subcreator"' >> "$p"
 echo 'source "$root/env/bin/activate"' >> "$p"
 echo 'exec "$root/subcreator.py" "$@"' >> "$p"
 chmod +x "$p"
