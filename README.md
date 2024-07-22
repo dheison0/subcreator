@@ -27,6 +27,8 @@ p=$HOME/.local/bin/subcreator
 echo '#!/usr/bin/env bash' > "$p"
 echo 'root="$HOME/.local/subcreator"' >> "$p"
 echo 'source "$root/env/bin/activate"' >> "$p"
-echo 'exec "$root/subcreator.py" "$@"' >> "$p"
+echo 'exec python "$root/cli.py" "$@"' >> "$p"
 chmod +x "$p"
+deactivate
+cd ~
 ```
