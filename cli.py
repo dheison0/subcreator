@@ -46,7 +46,7 @@ def parse_args() -> Namespace:
     )
     argparser.add_argument(
         "--save-srt",
-        help="Save subtitles to <input>.<language>.srt file",
+        help="Save subtitles to <output>.<language>.srt file",
         action="store_true",
     )
 
@@ -60,7 +60,7 @@ def main():
     subtitles = transcribe(args.whisper_model, args.input, args.input_language)
     temp_subtitles = mktemp()
     write_subtitles(temp_subtitles, subtitles["segments"])
-    subtitles_basename = args.input.replace(args.input.split(".")[-1], "")[:-1]
+    subtitles_basename = args.output.replace(args.output.split(".")[-1], "")[:-1]
     if args.save_srt:
         lib.log("Saving original subtitles...")
         shutil.copy(temp_subtitles, f"{subtitles_basename}.{subtitles['language']}.srt")
