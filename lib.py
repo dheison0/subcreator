@@ -1,15 +1,19 @@
 import os
 import subprocess
-from time import strftime
+from time import strftime, time
 from typing import Any
 
 import googletrans
 
 MAX_TEXT_LENGTH = 2000
 
+last_used = time()
+
 
 def log(text: str):
-    print(f"[{strftime('%H:%M:%S')}] {text}")
+    global last_used
+    print(f"[{strftime('%H:%M:%S')} {time()-last_used:0.1f}s] {text}")
+    last_used = time()
 
 
 def to_srt_time_format(time: float) -> str:
